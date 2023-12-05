@@ -75,15 +75,15 @@ if (escala === "C") {
   console.log("Error de escala");
 }
 
-let temperature = parseFloat(prompt('Ingresa la temperatura: '));
+let temp = parseFloat(prompt('Ingresa la temperatura: '));
 let scale = prompt('Ingresa la escala a la que quieras cambiar tu temperatura (C o K):');
 
 switch (scale){
     case 'K':
-        console.log(`La temperatura en Kelvin es: ${temperature + 273.15}K`);
+        console.log(`La temperatura en Kelvin es: ${temp + 273.15}K`);
         break
     case 'C':
-        console.log(`La temperatura en Celsius es: ${temperature - 273.15}ºC`);
+        console.log(`La temperatura en Celsius es: ${temp - 273.15}ºC`);
         break;
     default:
         console.log(`Error de escala`)
