@@ -9,7 +9,7 @@ fruits = [
   'apple'
 ];
 
-console.log(fruits);
+console.log(fruits[0].toUpperCase());
 
 fruits[1] = 'kiwi';
 
