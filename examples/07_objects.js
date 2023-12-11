@@ -167,3 +167,64 @@ for (let key in shows[1]) {
 console.log('Keys ', Object.keys(shows));
 
 console.log(shows);
+
+console.clear();
+
+const libros = [
+  {
+    titulo: "El gran Gatsby",
+    autor: "F. Scott Fitzgerald",
+    año: 1925
+  },
+  {
+    titulo: "1984",
+    autor: "George Orwell",
+    año: 1949
+  },
+  {
+    titulo: "Cien años de soledad",
+    autor: "Gabriel García Márquez",
+    año: 1967
+  },
+  {
+    titulo: "Harry Potter y la piedra filosofal",
+    autor: "J.K. Rowling",
+    año: 1997
+  },
+  {
+    titulo: "El código Da Vinci",
+    autor: "Dan Brown",
+    año: 2003
+  },
+  {
+    titulo: "Crepúsculo",
+    autor: "Stephenie Meyer",
+    año: 2005
+  },
+  {
+    titulo: "Los juegos del hambre",
+    autor: "Suzanne Collins",
+    año: 2008
+  }
+];
+
+let arrayLibros2000 = [];
+
+for (let i = 0; i < libros.length; i++) {
+  const libro = libros[i];
+  if (libro['año'] > 2000){
+      arrayLibros2000.push(libro.titulo);
+  }
+}
+
+
+let modernBooks = [];
+
+for(let book in libros)
+{
+  if(book.año >= 2000)
+      modernBooks.push(book.titulo);
+}
+
+
+console.log(`Libros posteriores al 2000: ${modernBooks.join(', ')}`);
