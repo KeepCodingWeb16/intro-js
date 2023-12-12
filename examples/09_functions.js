@@ -143,7 +143,7 @@ const adminInfo = getUserInfo(adminUser);
 console.log(adminUser);
 console.log(`usuario name: ${JSON.stringify(adminInfo)}`);
 
-
+/*
 let temperatura = parseInt(prompt("Ingresa la temperatura: "));
 let escala = prompt(
   "Ingresa la escala a la que quieras cambiar tu temperatura (C o K): "
@@ -151,7 +151,7 @@ let escala = prompt(
   .trim()
   .toString()
   .toUpperCase();
-
+*/
 const conversorTemp = (temp, escala) => {
   if (isNaN(temperatura)) {
     return "La temperatura introducida no es válida";
@@ -186,3 +186,82 @@ const calculNum = (list, parOrImp) => {
   }
   return (parOrImp === "par" ? pares :  impares);
 }
+
+// cierres
+console.clear();
+const counter = (initCounter = 0) => {
+  let count = initCounter;
+  const increment = () => {
+    count += 1;
+  };
+
+  const getCount = () => {
+    return count;
+  };
+
+  return { increment, getCount };
+};
+
+const counterBreak = counter();
+counterBreak.increment();
+counterBreak.increment();
+counterBreak.increment();
+console.log(counterBreak.getCount());
+const counterNextClass = counter(10);
+counterNextClass.increment();
+counterNextClass.increment();
+console.log(counterNextClass.getCount());
+
+
+const calculator = () => {
+  let result = 0
+
+  const sumar = num => (
+    result += num
+  )
+  const restar = num => (
+    result -= num
+  )
+  const multiplicar = num => {
+    return result *= num
+  }
+  const dividir = num => result /= num
+  const total = () => result
+
+  return { sumar, restar, multiplicar, dividir, total }
+
+}
+// debugger;
+const miCalculadora = calculator()
+console.log(miCalculadora.sumar(5))
+console.log(miCalculadora.restar(2))
+console.log(miCalculadora.multiplicar(4))
+console.log(miCalculadora.dividir(2))
+console.log(miCalculadora.sumar(10))
+console.log(miCalculadora.total())
+
+console.clear();
+// console.log(console);
+// pasar como parametro una función
+const foo = (param) => {
+  param();
+};
+
+const realizarOperacionV1 = (num1, num2, operacion) => {
+  if (operacion === 'suma') return num1 + num2;
+  else if (operacion === 'resta') return num1 - num2;
+};
+
+const result = realizarOperacionV1(1, 2, 'suma');
+console.log(result);
+
+const realizarOperacion = (num1, num2, operacion) => {
+  return operacion(num1, num2);
+};
+
+const add = (num1, num2) => num1 + num2;
+const dividir = (num1, num2) => num1 / num2; 
+
+realizarOperacion(5, 2, (param1, param2) => {
+  return param1 * param2;
+});
