@@ -128,11 +128,9 @@ const transactions = [
   { id: 'trx001', amount: 100, description: 'Splurge on a fancy gadget', category: 'Electronics' },
   { id: 'trx002', amount: 50, description: 'Treat yourself to a cozy meal', category: 'Food' },
   { id: 'trx003', amount: 200, description: 'Indulge in a shopping spree', category: 'Fashion' },
-  { id: 'trx004', amount: 75, description: 'Explore a new bookshop', category: 'Books' },
-  { id: 'trx005', amount: 120, description: 'Upgrade your workout gear', category: 'Fitness' },
+  { id: 'trx002', amount: 75, description: 'Explore a new bookshop', category: 'Books' },
+  { id: 'trx001', amount: 120, description: 'Upgrade your workout gear', category: 'Fitness' },
 ];
-
-
 const getTransaction = (list, id) => {
   const transaction = list.find((item) => {
     return item.id === id;
@@ -152,4 +150,34 @@ try {
 }
 
 console.clear();
+
+// reduce
+const totalAmount = transactions.reduce((acum, item) => {
+  console.log('acum: ', acum);
+  console.log('item.amount: ', item);
+  const result = acum + item.amount;
+  return result;
+}, 0);
+
+console.log(totalAmount);
+
+const getTransactions = (list, id) => {
+  return list.filter(item => item.id === id);
+};
+
+const a = { title: 'title' };
+const b = { age: 12 };
+const c = { ...a, ...b }; /// { title: 'title', age: 12 };
+
+const transactionMapped = transactions.reduce((acum, item) => {
+  const transactionList = acum[item.id] ? acum[item.id] : [];
+  return {
+    ...acum,
+    [item.id]: [...transactionList, item],
+  };
+}, {});
+
+console.log(transactionMapped.trx002); // [{}, {}]
+
+console.log(getTransactions(transactions, 'trx002'));  // [{}, {}]
 
