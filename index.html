@@ -6,7 +6,22 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="examples/10_map_filter_reduce.js"></script>
+  <!--
+    <script src="modulos/index.js" type="module"></script>
+    <script src="modulos/utils.js" type="module"></script>
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script>
+    axios.get('https://api.tvmaze.com/shows')
+      .then(info => {
+        console.log(info);
+      });
+    const main = async () => {
+      const info = await axios.get('https://api.tvmaze.com/shows');
+    };
+    main();
+  </script>
+  
 
   <h2>¡Recuerda abrir la consola del navegador para ver los resultados!</h2>
   <p>Ejecuta Ctrl + Shift + I en Windows/Linux o Command + Option + I en Mac para abrir la consola.</p>
